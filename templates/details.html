@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2 class="text-center text-white " style="font-size: 40px;"> Receipe details</h2>
+<hr >
+<div class=" mx-auto sm:p-10 md:p-16 ">
+	<div class="flex flex-col  mx-auto overflow-hidden rounded bg-blue-950 " style="width: 57%;">
+		<img src="/media/{{details.reciepe_image}}" alt="" class="h-[25rem] dark:bg-gray-500 justify-items-start">
+		<div class="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl  sm:mx-12 lg:rounded-md dark:bg-gray-900">
+			<div class="space-y-2">
+				<a rel="noopener noreferrer" href="#" class="inline-block text-2xl font-semibold sm:text-3xl text-white">{{details.receipe_name}}</a>
+				
+			</div>
+           
+			<div class="flex flex-wrap justify-between pt-3 gap-6 space-x-2 text-xs dark:text-gray-400">
+					 <span class="text-xl text-yellow-700 ">{{details.receipe_desc}}</span> 
+				<a href="/update_reciepe/{{details.id}}" class="text-xl text-white"> 
+					Update the receipe  
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

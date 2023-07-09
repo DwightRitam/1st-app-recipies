@@ -1,0 +1,48 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+
+{% block content %} 
+
+
+    <h1 class="text-center text-3xl text-blue-900 font-serif">Hi,{{request.user}} welcome to our recipe site</h1>
+<section class=" dark:bg-gray-800 dark:text-white-50 text-white">
+	<form novalidate="" action="" class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+		
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm ">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Profile</p>
+				<p class="text-xl">Give your recipe a new flavour</p>
+			</div>
+			<div class="grid grid-cols-6 gap-8 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<label for="username" class="text-sm ">Recipe name</label>
+					<input id="username" name="receipe_name" required type="text" placeholder="Salad" class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2 text-black">
+				</div>
+				
+				<div class="col-span-full">
+					<label for="bio"  class="text-sm">Description</label>
+					<textarea id="bio" name="receipe_desc" placeholder="Share your reciepe with us" required class="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 p-2 dark:border-gray-700 dark:text-gray-900 text-black"></textarea>
+				</div>
+				<div class="col-span-full">
+					<label for="bio" class="text-sm">Photo</label>
+					<div class="flex items-center space-x-2">
+                        <input id="website" name="reciepe_image" type="file" placeholder="" class="w-full focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 dark:text-gray-900 p-2 border rounded-md border-violet-500 ">
+						
+					</div>
+				</div>
+			</div>
+		</fieldset>
+        <button type="submit" class="w-[40%] m-auto items-center p-3 text-sm font-bold tracking-wide uppercase border border-black rounded  dark:text-gray-900 bg-green-900">Add Recipe</button>
+	</form>
+</section>
+<div class="flex justify-center">
+    <a href="reciepes" target="_blank">
+	<button type="button" class="px-6 py-3 text-xl rounded-md hover:underline text-blue-700">See all the reciepes...</button>
+    </a>
+</div>
+
+
+{% endblock content %}

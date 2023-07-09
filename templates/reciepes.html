@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="py-6 sm:py-12 text-white">
+	<div class="container p-6 mx-auto space-y-8">
+		<div class="space-y-2 text-center">
+			<h2 class="text-3xl font-bold">All the delicious recipies for you to check out</h2>
+			<p class="font-serif text-sm dark:text-gray-400">delicious recipies for every kind of taste buds</p>
+		</div>
+		<form>
+			
+			<div class="relative mt-6 mb-12 w-[32%] m-auto">
+				<span class="absolute inset-y-0 flex items-center pl-2 mx-auto">
+					<button type="submit" title="Search"  class="p-1 focus:outline-none focus:ring">
+						<svg fill="currentColor" viewBox="0 0 512 512" class="w-4 h-4 text-black ">
+							<path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
+						</svg>
+					</button>
+				</span>
+				<input type="search" name="search" placeholder="Search..." class="w-full text-black py-3 pl-12 text-sm rounded-full sm:w-96 focus:outline-none dark:bg-gray-800 dark:text-gray-100 focus:dark:bg-gray-900">
+				
+			</div>
+		</form>
+		
+		<div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+			{% for receipe in receipes %}
+			<article class="flex bg-blue-500 flex-col dark:bg-gray-900">
+				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+					<img src="/media/{{receipe.reciepe_image}} " class="w-full h-[200px]" alt="no display">
+				</a>
+				<div class="flex flex-col flex-1 p-6 ">
+					<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
+					<a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">{{receipe.receipe_name}}</a>
+					<h3 class="flex-1 py-2 text-lg font-semibold truncate">{{receipe.receipe_desc}}</h3>
+					<div class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
+						<a href="/get_details/{{receipe.id}}" target="_blank">
+							 <span>See More..</span> 
+						</a>
+						<a href="/delete_reciepe/{{receipe.id}}"> 
+							Delete  
+						</a>
+					</div>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+	</div>
+</section> 
+
+
+{% endblock content %}
