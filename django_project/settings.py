@@ -134,9 +134,9 @@ STATICFILES_DIR = (
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
-#for upload images ,public/static is the route to upload
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'public/static')
-# MEDIA_URL = '/media/'
+# for upload images ,public/static is the route to upload
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public/static')
+MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
